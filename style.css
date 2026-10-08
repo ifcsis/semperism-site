@@ -1,0 +1,86 @@
+:root{
+  --bg:#f7f4ec; --paper:#fffdf7; --ink:#1b2333; --ink-2:#424b5c; --muted:#6b7282;
+  --line:#ddd6c4; --line-2:#c9bfa6; --accent:#1f3358; --accent-soft:#3c5684; --gold:#9a7a2c;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12161f; --paper:#181d28; --ink:#e9e5da; --ink-2:#c3c0b6; --muted:#9a9ca5;
+  --line:#2b3242; --line-2:#3b4458; --accent:#c9b37a; --accent-soft:#d8c693; --gold:#c9a654;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.62 var(--serif)}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--gold)}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:8px;background:var(--paper);padding:6px 10px;z-index:9}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.wrap-narrow{max-width:700px}
+header.site{display:flex;align-items:center;gap:24px;max-width:1040px;margin:0 auto;padding:22px 24px;border-bottom:1px solid var(--line)}
+.brand{font:600 21px/1 var(--serif);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;margin-right:auto}
+.brand::before{content:"";display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);margin-right:10px;vertical-align:2px}
+header nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+header nav a{font:500 14px/1 var(--sans);color:var(--ink-2);text-decoration:none;letter-spacing:.02em}
+header nav a[aria-current=page],header nav a:hover{color:var(--accent);border-bottom:1px solid var(--gold);padding-bottom:3px}
+.btn{display:inline-block;font:600 14px/1 var(--sans);padding:12px 18px;background:var(--accent);color:var(--paper);border:1px solid var(--accent);border-radius:2px;text-decoration:none}
+.btn:hover{background:var(--accent-soft);color:var(--paper)}
+.btn-sm{padding:9px 14px;font-size:13px}
+.btn-ghost{background:transparent;color:var(--accent)}
+.btn-ghost:hover{background:var(--accent);color:var(--paper)}
+main{padding:0 0 72px}
+.eyebrow{display:block;font:600 11.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.hero{padding:88px 24px 56px}
+.hero h1{font:500 clamp(34px,5.2vw,56px)/1.12 var(--serif);margin:0 0 22px;max-width:18ch;letter-spacing:-.01em}
+.lede{font-size:21px;color:var(--ink-2);max-width:36em}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.page-top{padding-top:48px}
+.page-h{font:500 clamp(30px,4vw,40px)/1.15 var(--serif);margin:0 0 18px;max-width:24ch}
+.section-h{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:52px 0 8px;padding-top:22px;border-top:1px solid var(--line)}
+.muted{color:var(--muted);font-size:16px}
+.pubs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--accent);padding:24px 24px 20px}
+.card h3{font:600 23px/1.22 var(--serif);margin:0 0 4px}
+.card h3 a{color:var(--ink);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card-sub{display:block;font-style:italic;color:var(--ink-2);font-size:16px;margin:0 0 12px}
+.card p{font-size:16.5px;margin:0 0 10px}
+.card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin:16px 0 0}
+.req{font:600 12.5px/1 var(--sans);color:var(--accent-soft);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px}
+.req:hover{color:var(--gold);border-color:var(--gold)}
+.related{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+.related li{display:grid;grid-template-columns:70px 1fr;gap:2px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.related .eyebrow{margin:5px 0 0;grid-row:span 2}
+.related a{font-size:19px;font-weight:600;text-decoration:none}
+.related .card-sub{margin:0}
+.note{background:var(--paper);border-left:3px solid var(--gold);padding:18px 24px;margin:28px 0}
+.note h3{font:600 17px/1.3 var(--sans);margin:0 0 6px}
+.note p{margin:0 0 8px;font-size:16.5px}
+.prose h1,.paper h1{font:500 clamp(32px,4.4vw,44px)/1.12 var(--serif);margin:0 0 10px}
+.prose,.paper{padding-top:48px}
+.prose h2,.paper h2{font:600 22px/1.3 var(--serif);margin:36px 0 8px}
+.paper h3{font:600 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:36px 0 8px}
+.paper-back{font:500 14px/1 var(--sans);margin:0 0 28px}.paper-back a{text-decoration:none}
+.paper-sub{font-size:21px;font-style:italic;color:var(--ink-2);margin:0 0 8px}
+.paper-meta{font:500 13.5px/1.4 var(--sans);color:var(--muted);margin:0 0 30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.paper-ask{margin-top:44px}
+blockquote{margin:30px 0;padding:6px 0 6px 24px;border-left:3px solid var(--gold);font-size:21px;font-style:italic;color:var(--ink)}
+.cite{font:15px/1.5 var(--sans);color:var(--ink-2);background:var(--paper);border:1px solid var(--line);padding:12px 14px;overflow-wrap:anywhere}
+footer.site{display:flex;flex-wrap:wrap;gap:8px 28px;max-width:1040px;margin:0 auto;padding:28px 24px 48px;border-top:1px solid var(--line);font:13.5px/1.5 var(--sans);color:var(--muted)}
+@media (max-width:640px){
+  body{font-size:17px}
+  header.site{flex-wrap:wrap;gap:14px;padding:18px 16px}
+  header .btn{display:none}
+  .wrap{padding:0 16px}
+  .hero{padding:56px 16px 36px}
+  .pubs{grid-template-columns:1fr}
+  .related li{grid-template-columns:1fr}
+  .related .eyebrow{grid-row:auto;margin:0}
+}
+@media print{
+  header.site,footer.site,.paper-back,.paper-ask .card-actions,.skip{display:none}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.38}
+  .paper p{margin:0 0 5pt}.paper-sub{font-size:13pt}.paper h3,.cite{display:none}
+  .paper{padding-top:0}.paper h1{font-size:22pt}.paper h2{font-size:12pt;margin:9pt 0 2pt}
+  .paper-meta{margin-bottom:10pt;padding-bottom:8pt}.paper-ask{margin-top:14pt}
+  .note{border-left:2px solid #999;padding:6pt 10pt}
+  @page{size:Letter;margin:0.55in}
+}
