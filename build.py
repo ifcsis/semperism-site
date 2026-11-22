@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Static site generator for semperism.org.
 
-Same library arrangement as ifcsis.org: each entry has a one-page brief that
+Each entry has a one-page brief that
 can be read on the site, and the full paper is sent on request by email.
 Work under submission to journals is not listed.
 
@@ -14,7 +14,7 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
 DOMAIN = "https://semperism.org"
-EMAIL = "shknudson@ifcsis.org"        # site contact
+EMAIL = "shknudson@semperism.org"     # site contact (Semperism correspondence only)
 AUTHOR = "S. Harrison Knudson, J.D."
 HERO = "Constitutions fail less often by usurpation than by consecration."
 
@@ -199,18 +199,18 @@ ENTRIES = [
                 "The prophecy changed. The venue it pointed to never came down to earth.",
             ]),
             ("Ordinary law looks petty", [
-                "Next to the end of the world, ordinary law looks small, and that is the point. A child "
-                "cannot sign a contract or consent to the use of her data, so the only valid credential "
-                "for a child is the parent’s enrollment. A company that forms a relationship with a child "
-                "no parent enrolled should carry the liability, as it would offline. A state legislature "
-                "can enact that in one session.",
+                "Next to the end of the world, ordinary law looks small, and that is the point. Contract, "
+                "tort and the rules that already govern who may deal with whom are law a state "
+                "legislature can enact in a single session and a county court can enforce, without "
+                "waiting for a global framework. Those are exactly the rules an eschatology makes "
+                "look like a rounding error.",
                 "This is not an allegation of a con; the believers are sincere. But sincerity tells you "
                 "what a man believes, not whose interests his proposal serves. The end of the world is "
                 "not a jurisdiction.",
             ]),
         ],
-        ask="The essay is short and was posted publicly in October 2026. The enrollment argument it "
-            "draws on is set out in the IFC-SiS brief No Free Pass, linked from this library.",
+        ask="The essay is short and was posted publicly in October 2026. It concedes that some AI "
+            "risks are concrete and testable, and argues that those deserve plain rules too.",
     ),
     dict(
         id="SE-01", slug="who-pays-the-bill", kind="Essay",
@@ -305,19 +305,6 @@ ENTRIES = [
     ),
 ]
 
-# Related work hosted elsewhere — linked, not duplicated.
-RELATED = [
-    ("WP-05", "The Geography of Zero", "Interacting frictions and institutional design after distance",
-     "https://ifcsis.org/the-geography-of-zero.html"),
-    ("WP-03", "The Misallocated Burden", "Cost allocation and regulatory path dependence in children’s online safety",
-     "https://ifcsis.org/the-misallocated-burden.html"),
-    ("WP-04", "The Demand Side", "Identification error in child-safety markets",
-     "https://ifcsis.org/the-demand-side.html"),
-    ("WP-02", "Refusal Is Not Referral", "Scope, escalation, and institutional duty for AI in children’s spaces",
-     "https://ifcsis.org/refusal-is-not-referral.html"),
-    ("NB-04", "No Free Pass", "Parental enrollment and liability for child-facing AI",
-     "https://ifcsis.org/no-free-pass.html"),
-]
 
 # ---------------------------------------------------------------- helpers
 e = lambda s: html.escape(s, quote=True)
@@ -422,7 +409,7 @@ fw = f"""<article class="wrap wrap-narrow prose">
   <h2>Anti-consecration architecture</h2>
   <p>On this reading the Constitution fuses Federalist structural design with a Semperist permanent prohibition: no actor and no institution is placed beyond constraint. The officer’s oath under Article VI runs to the Constitution, not to a person, an office or a flag. The Preamble limits the government’s ends; the Bill of Rights limits its means. A purpose statement is as confining as a rights statement.</p>
   <h2>Where the work goes from here</h2>
-  <p>The same question — how institutions come to exceed the terms on which they were founded — runs through the papers in the <a href="/library.html">library</a>: the Preamble and the oath, the Bill of Rights and the words it depends on, marriage and the state, displacement and the regimes that cause it, the reach of institutions over lawful private life, and the design of protected spaces online.</p>
+  <p>The same question — how institutions come to exceed the terms on which they were founded — runs through the papers in the <a href="/library.html">library</a>: the Preamble and the oath, the Bill of Rights and the words it depends on, marriage and the state, displacement and the regimes that cause it, and the reach of institutions over lawful private life.</p>
 </article>"""
 page("semperism.html", "Semperism — the framework", fw, current="semperism.html",
      description="Semperism: constitutions fail less often by usurpation than by consecration.")
@@ -440,11 +427,6 @@ lib = f"""<section class="wrap page-top">
 {chr(10).join(card(x) for x in ENTRIES)}
   </div>
 
-  <h2 class="section-h">Related work at IFC-SiS</h2>
-  <p class="muted">Papers on institutional design and children’s online safety, published by the International Foundation for Child-Safe internet Standards. Linked here, hosted there.</p>
-  <ul class="related">
-{chr(10).join(f'    <li><span class="eyebrow">{i}</span><a href="{u}">{e(t)}</a><span class="card-sub">{e(s)}</span></li>' for i, t, s, u in RELATED)}
-  </ul>
 
   <div class="note">
     <h3>Why the full papers are sent rather than posted</h3>
@@ -495,7 +477,7 @@ about = f"""<article class="wrap wrap-narrow prose">
   <h1>{e(AUTHOR)}</h1>
   <p class="lede">American lawyer and scholar, Arlington, Virginia.</p>
   <p>Steele Knudson has some two decades of practice across federal regulatory compliance, export controls and anti-corruption, antitrust, land use and internet governance. He holds a J.D. from George Mason University’s Antonin Scalia Law School and a B.S. in Urban Planning from the University of Utah.</p>
-  <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. On the constitutional side that is Semperism. On the technical side it is the design of a protected namespace for children, pursued through the <a href="https://ifcsis.org/">International Foundation for Child-Safe internet Standards</a>, where he is Director.</p>
+  <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. This site collects the constitutional side of that work: Semperism.</p>
   <p>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 </article>"""
 page("about.html", "About — S. Harrison Knudson", about, current="about.html",
