@@ -23,6 +23,102 @@ HERO = "Constitutions fail less often by usurpation than by consecration."
 # brief: list of (heading, [paragraphs]) — the one-page brief, rendered on site.
 ENTRIES = [
     dict(
+        id="SE-07", slug="the-heretic-becomes-the-inquisitor", kind="Essay",
+        title="The Heretic Becomes the Inquisitor",
+        sub="Institutional mimicry under terminological displacement",
+        meta="Essay · sixth version · August 2026",
+        blurb="Confession, shunning, purity taboo and secondary punishment were never distinctively "
+              "religious. They are the general architecture of closed institutions. When the heretic "
+              "takes the inquisitor’s chair, the words change and the machinery does not.",
+        description="Why institutions that repudiate religious authority reproduce its enforcement "
+                    "machinery under new names, and why the renaming is functional rather than ironic.",
+        brief=[
+            ("The puzzle", [
+                "The secular critique of religion was accurate: orthodoxy enforced by social pressure, "
+                "dissent punished by excommunication and shunning, sacred objects that put power beyond "
+                "challenge, belief performed as a loyalty test. The same inventory now describes "
+                "enforcement in institutions that reject religious authority entirely, under different "
+                "names. Why?",
+            ]),
+            ("Not a church, a closed institution", [
+                "The usual answer is that the movement is a religion, or descends from one. This essay "
+                "takes a third route. The mechanisms were never religious in origin. They are what any "
+                "institution does when it must hold a boundary without recourse to evidence. Religion "
+                "is the best-documented instance, which is why the mechanisms carry religious names.",
+                "The unit is the institution — a department, a newsroom, a party committee, a "
+                "licensing board — because only institutions can expel, decertify or dismiss. Six "
+                "observable criteria mark how closed an institution is, by degree rather than kind.",
+            ]),
+            ("Why the words change", [
+                "No committee replaced excommunication with cancellation. The cheaper descriptions "
+                "displaced the expensive ones, and three pressures did the selecting: critique-insulation "
+                "(the old words hand opponents a century of argument), legitimacy transfer (therapeutic "
+                "language carries a presumption of evidence that theology does not), and participation "
+                "cost (a recruit will join a process that holds people accountable who would never join "
+                "an inquisition).",
+            ]),
+            ("The pattern repeats, and cuts both ways", [
+                "The French Terror, Soviet show trials and Maoist struggle sessions each denounced "
+                "orthodoxy and rebuilt its architecture. The essay applies the same test against the "
+                "grain, to the Republican Party’s censure and non-recognition of its own dissenters "
+                "after January 2021, and finds the same structure under a different lexicon.",
+                "The vocabulary changes. The structure does not. And the new vocabulary is not a "
+                "disguise applied afterward; it is the condition on which ordinary people keep taking part.",
+            ]),
+        ],
+        ask="The full essay situates the argument against McWhorter, Bottum, Lifton, Durkheim, "
+            "Garfinkel and Kuran, sets out the six criteria and the substitution table, and states "
+            "three conditions that would count against it.",
+    ),
+    dict(
+        id="SE-08", slug="informacionalisme", kind="Framework",
+        title="Informacionalisme",
+        sub="Knowledge, power, and the struggle for truth across civilizations",
+        meta="Framework · book in progress · 2026",
+        blurb="The oldest instrument of power is the management of what people are able to know. "
+              "Informacionalisme names the systematic replacement of operative knowledge with managed "
+              "ignorance — and the intelligence that institutions commission to sustain it.",
+        description="Informacionalisme: the replacement of operative knowledge with managed ignorance, "
+                    "from the scribal monopolies to commissioned intelligence.",
+        brief=[
+            ("An ancient pattern with a new name", [
+                "Scholars of democratic backsliding have described authoritarian informationalism: the "
+                "manipulation of information flows by modern regimes. The phenomenon is real, but it is "
+                "not new. Informacionalisme — named in the French register for its aristocratic "
+                "genealogy — is the systematic replacement of operative knowledge with managed "
+                "ignorance, calibrated to a literacy ceiling.",
+            ]),
+            ("Three pressures, every era", [
+                "Knowledge drifts and degrades without active preservation. Its custodians develop "
+                "interests that diverge from truth. And power manufactures legitimating narratives. The "
+                "pattern holds from the scribal monopolies of Mesopotamia and Egypt to Semmelweis, whose "
+                "proof that handwashing saved mothers was rejected because accepting it was intolerable. "
+                "What has always ended it, imperfectly and for a time, is the written record and the "
+                "education that makes it legible.",
+            ]),
+            ("Gresham’s law applied to truth", [
+                "The internet was supposed to collapse the literacy ceiling. Instead counterfeit signal, "
+                "cheaper to produce and richer in emotion, drove out good. Flooding an epistemic economy "
+                "is the same maneuver as flooding a currency: the aim is not to win a transaction but "
+                "to destroy the medium of exchange.",
+            ]),
+            ("Commissioned intelligence", [
+                "Artificial intelligence is a misnomer. Intelligence has always been commissioned: "
+                "Augustus commissioned Virgil, the Church commissioned Michelangelo, crowns and popes "
+                "founded the universities. What is new is the scale, the speed and the invisibility of "
+                "the patron. The question is who commissioned the intelligence, toward what end, and "
+                "what corrective signal it was built to suppress.",
+                "The framework also explains what the study of ignorance usually misses: why people "
+                "cling to their own misinformation. Ignorance is not only inflicted from above. It is "
+                "cultivated from below, when an institution offers the security of managed ignorance in "
+                "place of the discomfort of knowing. Once ignorance is known to be remediable, choosing "
+                "to remain in it is a moral failure.",
+            ]),
+        ],
+        ask="Informacionalisme is the subject of a book in progress. Working papers on the framework, "
+            "including its relation to agnotology and to institutional mimicry, are available on request.",
+    ),
+    dict(
         id="SE-03", slug="the-key-of-the-constitution", kind="Article",
         title="The Key of the Constitution",
         sub="Purpose, oath, and the republic that may not be consecrated",
