@@ -17,3 +17,4 @@ Static site for GitHub Pages — same arrangement as ifcsis.org. No build step n
 
 ## Add or change a paper
 Edit `ENTRIES` (or `RELATED`) in `build.py`, run `python3 build.py`, then `python3 make_pdfs.py`, and upload the changed files from `site/`.
+ 
