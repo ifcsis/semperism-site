@@ -333,12 +333,13 @@ def page(fname, title, body, current="", description="", head_extra=""):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{canon}">
-{head_extra}<link rel="stylesheet" href="/style.css">
+{head_extra}<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <a class="brand" href="/">Semperism</a>
+  <a class="brand" href="/"><svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">  <g class="m-ink" fill="currentColor">    <!-- spear held at rest, point down, breaking the chain -->    <g transform="rotate(42 32 32)">      <rect x="30.6" y="0" width="2.8" height="46" rx="1.4"/>      <circle cx="32" cy="0.8" r="2.6"/>      <rect x="27.6" y="44.5" width="8.8" height="2.4" rx="1.2"/>      <path d="M32 47.5 C28 51 28 55 32 63 C36 55 36 51 32 47.5 Z"/>    </g>    <!-- fallen crown, cracked -->    <g transform="translate(-5 -3) rotate(-12 48 54)">      <path d="M36 61 L36 51 L40 55 L43.6 48 L45.2 54 L45.2 61 Z"/>      <path d="M47.4 61 L47.4 53 L49.5 48.5 L53 55 L57 51 L57 61 Z"/>    </g>  </g>  <!-- broken chain link -->  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">    <path d="M4 44 C2 50 6 55 10 53"/>    <path d="M7 38 C11 34 16 37 15 42"/>  </g>  <g class="m-gold" fill="#9a7a2c" transform="translate(-5 -3) rotate(-12 48 54)">    <circle cx="43.6" cy="46.3" r="1.5"/><circle cx="36" cy="49.4" r="1.3"/>    <circle cx="49.5" cy="46.8" r="1.5"/><circle cx="57" cy="49.4" r="1.3"/>  </g></svg>Semperism</a>
   <nav><ul>{nav}</ul></nav>
   <a class="btn btn-sm" href="mailto:{EMAIL}">Write</a>
 </header>
@@ -374,13 +375,18 @@ if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
 shutil.copy(os.path.join(ROOT, "style.css"), OUT)
+shutil.copy(os.path.join(ROOT, "favicon.svg"), OUT)
+shutil.copytree(os.path.join(ROOT, "img"), os.path.join(OUT, "img"))
 
 # Home
-home = f"""<section class="hero wrap">
+home = f"""<section class="hero wrap hero-emblem">
+  <img class="emblem" src="/img/semper-virtus.webp" width="844" height="900" alt="Semper Virtus: Virtue holds the spear at rest, its point breaking a chain; a child holds the book Lex Aeterna; a cracked crown lies at her feet.">
+  <div>
   <span class="eyebrow">From <em>sic semper tyrannis</em></span>
   <h1>{e(HERO)}</h1>
   <p class="lede">Semperism is a constitutional philosophy of permanent limits: the study of how institutions acquire a reverence they were never granted, and how a founding text is built to refuse it.</p>
   <p class="hero-actions"><a class="btn" href="/library.html">Enter the library</a> <a class="btn btn-ghost" href="/semperism.html">The framework</a></p>
+  </div>
 </section>
 <section class="wrap">
   <h2 class="section-h">Recently added</h2>
@@ -403,6 +409,10 @@ fw = f"""<article class="wrap wrap-narrow prose">
   <h2>The word</h2>
   <p>History calls them Anti-Federalists, a label their opponents gave them that says only what they were against. Mason, who refused to sign at Philadelphia; Henry, who fought ratification in Virginia; the essayist Brutus; Monroe, who voted no and later became President. What they shared was a conviction the old vocabulary never named: some things are always a threat. Consolidation, consecration, the marking of dissent as disloyalty — these are not accidents of bad rulers. They are the <em>always</em> of government, and they call for permanent, written prohibition.</p>
   <p>I call that disposition <em>Semperist</em>. It is an interpretive name, not a claimed historical identity. It comes from the motto George Wythe’s committee set on Virginia’s seal in 1776, <em>sic semper tyrannis</em>. John Wilkes Booth later turned the phrase into an assassin’s line. It deserves to be heard again as the founders heard it: not vengeance, but a permanent posture toward power. The seal shows it — Virtus standing over the fallen tyrant, spear grounded, sword sheathed.</p>
+  <figure class="emblem-fig">
+    <img src="/img/semper-virtus.webp" width="844" height="900" alt="The Semper Virtus emblem.">
+    <figcaption><em>Semper Virtus.</em> Virtue holds the spear at rest, its point breaking the chain. The crown lies cracked at her feet, and the child holds <em>Lex Aeterna</em> — the law that outlasts every ruler, kept for posterity.</figcaption>
+  </figure>
   <h2>Federalists and Semperists</h2>
   <p>The Federalists believed structure would suffice: ambition set against ambition, because men are not angels. Hamilton argued in Federalist No. 84 that a bill of rights was unnecessary. The Semperists answered that structure without written prohibition invites the very drift structure is meant to slow.</p>
   <p>Neither side simply won. Madison drafted the Bill of Rights himself — the Semperist program, enacted by its ablest opponent. Federalist architecture without Semperist prohibition would have been a machine without a cage. Semperist prohibition without Federalist architecture would have been a cage without a machine. The founding succeeded because two rival virtues corrected each other. It took 278 days to say yes to a government, and 1,550 days to say what it must not do.</p>

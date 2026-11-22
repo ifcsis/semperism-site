@@ -18,7 +18,15 @@ a:hover{color:var(--gold)}
 .wrap-narrow{max-width:700px}
 header.site{display:flex;align-items:center;gap:24px;max-width:1040px;margin:0 auto;padding:22px 24px;border-bottom:1px solid var(--line)}
 .brand{font:600 21px/1 var(--serif);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;margin-right:auto}
-.brand::before{content:"";display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);margin-right:10px;vertical-align:2px}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand .mark{width:30px;height:30px;color:var(--accent);flex:none}
+.brand .mark .m-gold{fill:var(--gold)}
+.hero-emblem{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:48px;align-items:center}
+.hero-emblem .emblem{width:100%;height:auto}
+.emblem-fig{margin:28px auto 8px;max-width:420px;text-align:center}
+.emblem-fig img{width:100%;height:auto}
+.emblem-fig figcaption{font:italic 15px/1.5 var(--serif);color:var(--ink-2);margin-top:10px}
+@media (max-width:760px){.hero-emblem{grid-template-columns:1fr;gap:24px}.hero-emblem .emblem{max-width:240px;margin:0 auto}}
 header nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
 header nav a{font:500 14px/1 var(--sans);color:var(--ink-2);text-decoration:none;letter-spacing:.02em}
 header nav a[aria-current=page],header nav a:hover{color:var(--accent);border-bottom:1px solid var(--gold);padding-bottom:3px}
