@@ -16,6 +16,16 @@ OUT = os.path.join(ROOT, "site")
 DOMAIN = "https://semperism.org"
 EMAIL = "shknudson@semperism.org"     # site contact (Semperism correspondence only)
 AUTHOR = "S. Harrison Knudson, J.D."
+SUBSTACK = "https://semperism.substack.com"
+# Shorter essays published on the Semper Substack (newest first)
+POSTS = [
+    dict(title="The Fuel Left Out of Panem",
+         sub="Panem's children inherit the guilt. Real tyranny also raises children to inherit the hate.",
+         blurb="The Hunger Games shows a state that can make guilt hereditary, and leaves out the blood "
+               "and faith that make hatred hereditary too. On Coin's last Games, the Nuremberg Laws, "
+               "Barnette, Romeo and Juliet, and the inquisitor's chair.",
+         url=SUBSTACK + "/p/the-fuel-left-out-of-panem", date="November 2026"),
+]
 HERO = "Constitutions fail less often by usurpation than by consecration."
 
 # ---------------------------------------------------------------- library data
@@ -445,6 +455,7 @@ def page(fname, title, body, current="", description="", head_extra=""):
 <footer class="site">
   <span>{e(AUTHOR)}</span>
   <span>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+  <span>Essays: <a href="{SUBSTACK}">Semper on Substack</a></span>
   <span>This site sets no cookies and loads no third-party resources.</span>
 </footer>
 </body>
@@ -463,6 +474,18 @@ def card(x):
       <p class="card-actions">
         <a class="btn btn-sm btn-ghost" href="/{x['slug']}.html">Read the brief &rarr;</a>
         <a class="req" href="{e(req_link(x['title'], x['id']))}">Request the full paper</a>
+      </p>
+    </article>"""
+
+def post_card(x):
+    return f"""    <article class="card">
+      <span class="eyebrow">Substack &middot; {e(x['date'])}</span>
+      <h3><a href="{e(x['url'])}">{e(x['title'])}</a></h3>
+      <p class="card-sub">{e(x['sub'])}</p>
+      <p>{e(x['blurb'])}</p>
+      <p class="card-actions">
+        <a class="btn btn-sm btn-ghost" href="{e(x['url'])}">Read the essay &rarr;</a>
+        <a class="req" href="{SUBSTACK}/subscribe">Subscribe free</a>
       </p>
     </article>"""
 
@@ -531,6 +554,12 @@ lib = f"""<section class="wrap page-top">
   <p class="muted">One page now; the paper on request.</p>
   <div class="pubs">
 {chr(10).join(card(x) for x in ENTRIES)}
+  </div>
+
+  <h2 class="section-h">Essays on Substack</h2>
+  <p class="muted">Shorter pieces are published in full on <a href="{SUBSTACK}">Semper</a>, free to read with no subscription needed. Subscribe there to get new essays by email.</p>
+  <div class="pubs">
+{chr(10).join(post_card(x) for x in POSTS)}
   </div>
 
 
