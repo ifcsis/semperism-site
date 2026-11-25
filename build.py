@@ -23,7 +23,7 @@ import json
 ELSEWHERE = [
     ("IFC-SiS", "https://ifcsis.org/"),
     ("Super Elements", "https://superelements.com/"),
-    ("Son of God", "https://sonofgod.love/"),
+    ("Son of God · theology library", "https://sonofgod.love/library"),
 ]
 PERSON = {
     "@type": "Person", "@id": "https://semperism.org/about.html#person",
@@ -35,7 +35,7 @@ PERSON = {
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
                  {"@type": "CollegeOrUniversity", "name": "University of Utah"}],
     "sameAs": ["https://orcid.org/0009-0004-3600-4115", "https://ifcsis.org/director.html", "https://superelements.com/",
-               "https://sonofgod.love/", SUBSTACK],
+               "https://sonofgod.love/", "https://sonofgod.love/library", SUBSTACK],
 }
 OG_IMAGE = "https://semperism.org/img/semper-virtus.webp"
 def ld(obj):
