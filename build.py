@@ -28,7 +28,8 @@ ELSEWHERE = [
 PERSON = {
     "@type": "Person", "@id": "https://semperism.org/about.html#person",
     "name": "S. Harrison Knudson", "honorificSuffix": "J.D.",
-    "alternateName": ["Steele Harrison Knudson", "Steele Knudson"],
+    "alternateName": ["Steele Harrison Knudson", "S Harrison Knudson", "Steele H. Knudson", "Steele Knudson", "Harrison Knudson"],
+    "givenName": "Steele", "additionalName": "Harrison", "familyName": "Knudson",
     "url": "https://semperism.org/about.html",
     "jobTitle": "Attorney and independent scholar",
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
@@ -651,13 +652,13 @@ for x in ENTRIES:
 about = f"""<article class="wrap wrap-narrow prose">
   <span class="eyebrow">The author</span>
   <h1>{e(AUTHOR)}</h1>
-  <p class="lede">American lawyer and scholar, Arlington, Virginia.</p>
+  <p class="lede">Steele Harrison Knudson — American lawyer and scholar, Arlington, Virginia.</p>
   <p>Steele Knudson has some two decades of practice across federal regulatory compliance, export controls and anti-corruption, antitrust, land use and internet governance. He holds a J.D. from George Mason University’s Antonin Scalia Law School and a B.S. in Urban Planning from the University of Utah.</p>
   <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. This site collects the constitutional side of that work: Semperism.</p>
   <p>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 </article>"""
-page("about.html", "About — S. Harrison Knudson", about, current="about.html",
-     description="S. Harrison Knudson, J.D. — American lawyer and scholar, Arlington, Virginia.")
+page("about.html", "About — S. Harrison Knudson (Steele Harrison Knudson)", about, current="about.html",
+     description="S. Harrison Knudson, J.D. (Steele Harrison Knudson) — American lawyer and scholar, Arlington, Virginia.")
 
 # 404
 page("404.html", "Not found — Semperism", """<section class="wrap wrap-narrow prose">
