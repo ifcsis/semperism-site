@@ -33,7 +33,7 @@ PERSON = {
     "jobTitle": "Attorney and independent scholar",
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
                  {"@type": "CollegeOrUniversity", "name": "University of Utah"}],
-    "sameAs": ["https://ifcsis.org/director.html", "https://superelements.com/",
+    "sameAs": ["https://orcid.org/0009-0004-3600-4115", "https://ifcsis.org/director.html", "https://superelements.com/",
                "https://sonofgod.love/", SUBSTACK],
 }
 OG_IMAGE = "https://semperism.org/img/semper-virtus.webp"
@@ -607,6 +607,7 @@ for x in ENTRIES:
     year = "2026"
     headx = (f'<meta name="citation_title" content="{e(x["title"])}">\n'
              f'<meta name="citation_author" content="Knudson, S. Harrison">\n'
+             f'<meta name="citation_author_orcid" content="https://orcid.org/0009-0004-3600-4115">\n'
              f'<meta name="citation_publication_date" content="{year}">\n'
              f'<meta name="citation_public_url" content="{url}">\n'
              + ld({"@type": "ScholarlyArticle", "headline": x["title"],
