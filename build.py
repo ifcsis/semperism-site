@@ -52,6 +52,7 @@ POSTS = [
 # and post URL here, run build.py, and publish. Its brief page and library card
 # then link to the full text instead of offering it by request.
 FULL_TEXT = {
+    "forum-shopping-for-the-apocalypse": SUBSTACK + "/p/forum-shopping-for-the-apocalypse",
     # "the-key-of-the-constitution": SUBSTACK + "/p/the-key-of-the-constitution",
 }
 HERO = "Constitutions fail less often by usurpation than by consecration."
