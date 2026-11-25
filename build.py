@@ -17,6 +17,28 @@ DOMAIN = "https://semperism.org"
 EMAIL = "shknudson@semperism.org"     # site contact (Semperism correspondence only)
 AUTHOR = "S. Harrison Knudson, J.D."
 SUBSTACK = "https://semperism.substack.com"
+import json
+# The author's other sites. Shown in every footer and listed as sameAs in the
+# structured data, so search engines connect them to one person.
+ELSEWHERE = [
+    ("IFC-SiS", "https://ifcsis.org/"),
+    ("Super Elements", "https://superelements.com/"),
+    ("Son of God", "https://sonofgod.love/"),
+]
+PERSON = {
+    "@type": "Person", "@id": "https://semperism.org/about.html#person",
+    "name": "S. Harrison Knudson", "honorificSuffix": "J.D.",
+    "alternateName": ["Steele Harrison Knudson", "Steele Knudson"],
+    "url": "https://semperism.org/about.html",
+    "jobTitle": "Attorney and independent scholar",
+    "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
+                 {"@type": "CollegeOrUniversity", "name": "University of Utah"}],
+    "sameAs": ["https://ifcsis.org/director.html", "https://superelements.com/",
+               "https://sonofgod.love/", SUBSTACK],
+}
+OG_IMAGE = "https://semperism.org/img/semper-virtus.webp"
+def ld(obj):
+    return '<script type="application/ld+json">' + json.dumps(dict({"@context": "https://schema.org"}, **obj), ensure_ascii=False) + '</script>\n'
 # Shorter essays published on the Semper Substack (newest first)
 POSTS = [
     dict(title="The Fuel Left Out of Panem",
@@ -439,7 +461,10 @@ def page(fname, title, body, current="", description="", head_extra=""):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{canon}">
-{head_extra}<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="{'article' if 'citation_title' in head_extra else 'website'}">
+<meta property="og:site_name" content="Semperism">
+<meta property="og:image" content="{OG_IMAGE}">
+{ld(PERSON) if fname in ("index.html", "about.html") else ""}{head_extra}<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -456,6 +481,7 @@ def page(fname, title, body, current="", description="", head_extra=""):
   <span>{e(AUTHOR)}</span>
   <span>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></span>
   <span>Essays: <a href="{SUBSTACK}">Semper on Substack</a></span>
+  <span>Also by the author: {" &middot; ".join('<a href="%s">%s</a>' % (u, l) for l, u in ELSEWHERE)}</span>
   <span>This site sets no cookies and loads no third-party resources.</span>
 </footer>
 </body>
@@ -582,7 +608,13 @@ for x in ENTRIES:
     headx = (f'<meta name="citation_title" content="{e(x["title"])}">\n'
              f'<meta name="citation_author" content="Knudson, S. Harrison">\n'
              f'<meta name="citation_publication_date" content="{year}">\n'
-             f'<meta name="citation_public_url" content="{url}">\n')
+             f'<meta name="citation_public_url" content="{url}">\n'
+             + ld({"@type": "ScholarlyArticle", "headline": x["title"],
+                   "alternativeHeadline": x.get("sub", ""), "description": x["description"],
+                   "author": {"@id": PERSON["@id"], "@type": "Person", "name": PERSON["name"],
+                              "url": PERSON["url"]},
+                   "datePublished": str(year), "url": url, "inLanguage": "en",
+                   "isPartOf": {"@type": "WebSite", "name": "Semperism", "url": DOMAIN + "/"}}))
     secs = "\n".join(f"  <h2>{e(h)}</h2>\n" + "\n".join(f"  <p>{e(p)}</p>" for p in ps) for h, ps in x["brief"])
     sep = " " if x["title"][-1] in "?!" else ": "
     cite = f"Knudson, S. Harrison. “{x['title']}{sep}{x['sub']}.” {x['kind']}, {year}. {url}"
