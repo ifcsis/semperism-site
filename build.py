@@ -48,6 +48,12 @@ POSTS = [
                "Barnette, Romeo and Juliet, and the inquisitor's chair.",
          url=SUBSTACK + "/p/the-fuel-left-out-of-panem", date="November 2026"),
 ]
+# Full papers published on Semper (Substack). When a paper goes up, add its slug
+# and post URL here, run build.py, and publish. Its brief page and library card
+# then link to the full text instead of offering it by request.
+FULL_TEXT = {
+    # "the-key-of-the-constitution": SUBSTACK + "/p/the-key-of-the-constitution",
+}
 HERO = "Constitutions fail less often by usurpation than by consecration."
 
 # ---------------------------------------------------------------- library data
@@ -499,7 +505,7 @@ def card(x):
       <p>{e(x['blurb'])}</p>
       <p class="card-actions">
         <a class="btn btn-sm btn-ghost" href="/{x['slug']}.html">Read the brief &rarr;</a>
-        <a class="req" href="{e(req_link(x['title'], x['id']))}">Request the full paper</a>
+        {('<a class="req" href="%s">Read the full paper on Semper</a>' % e(FULL_TEXT[x['slug']])) if x['slug'] in FULL_TEXT else ('<a class="req" href="%s">Request the full paper</a>' % e(req_link(x['title'], x['id'])))}
       </p>
     </article>"""
 
@@ -615,6 +621,7 @@ for x in ENTRIES:
                    "author": {"@id": PERSON["@id"], "@type": "Person", "name": PERSON["name"],
                               "url": PERSON["url"]},
                    "datePublished": str(year), "url": url, "inLanguage": "en",
+                   **({"sameAs": FULL_TEXT[x["slug"]]} if x["slug"] in FULL_TEXT else {}),
                    "isPartOf": {"@type": "WebSite", "name": "Semperism", "url": DOMAIN + "/"}}))
     secs = "\n".join(f"  <h2>{e(h)}</h2>\n" + "\n".join(f"  <p>{e(p)}</p>" for p in ps) for h, ps in x["brief"])
     sep = " " if x["title"][-1] in "?!" else ": "
@@ -627,9 +634,9 @@ for x in ENTRIES:
   <p class="paper-meta">{e(x['meta'])} &middot; {e(AUTHOR)}</p>
 {secs}
   <div class="note paper-ask">
-    <p>{e(x['ask'])}</p>
+    <p>{e("The full paper is published on Semper, free to read." if x['slug'] in FULL_TEXT else x['ask'])}</p>
     <p class="card-actions">
-      <a class="btn btn-sm" href="{e(req_link(x['title'], x['id']))}">Request the full paper</a>
+      {('<a class="btn btn-sm" href="%s">Read the full paper &rarr;</a>' % e(FULL_TEXT[x['slug']])) if x['slug'] in FULL_TEXT else ('<a class="btn btn-sm" href="%s">Request the full paper</a>' % e(req_link(x['title'], x['id'])))}
       <a class="req" href="/docs/{x['slug']}.pdf">Download this page as PDF</a>
     </p>
   </div>

@@ -18,3 +18,9 @@ Static site for GitHub Pages. No build step needed to publish: upload the files 
 ## Add or change a paper
 Edit `ENTRIES` (or `RELATED`) in `build.py`, run `python3 build.py`, then `python3 make_pdfs.py`, and upload the changed files from `site/`.
  
+
+## When a full paper goes up on Semper (Substack)
+Add a line to `FULL_TEXT` in `build.py` — the paper's slug and the Substack post URL — then run
+`python3 build.py`, copy `site/` to the repository root, and push. The paper's brief page and library
+card switch from "Request the full paper" to a link to the full text, and its structured data points
+search engines to the post.
