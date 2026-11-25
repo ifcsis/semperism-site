@@ -653,10 +653,10 @@ about = f"""<article class="wrap wrap-narrow prose">
   <span class="eyebrow">The author</span>
   <h1>{e(AUTHOR)}</h1>
   <p class="lede">American lawyer and scholar, Arlington, Virginia.</p>
-  <p class="aka" style="font-size:14px;opacity:.7;margin-top:-8px">Also known as Steele Knudson · Steele Harrison Knudson</p>
   <p>Steele Knudson has some two decades of practice across federal regulatory compliance, export controls and anti-corruption, antitrust, land use and internet governance. He holds a J.D. from George Mason University’s Antonin Scalia Law School and a B.S. in Urban Planning from the University of Utah.</p>
   <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. This site collects the constitutional side of that work: Semperism.</p>
   <p>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+  <p class="aka" style="font-size:13px;opacity:.6;margin-top:40px;padding-top:12px;border-top:1px solid currentColor">S. Harrison Knudson is also known as Steele Knudson and Steele Harrison Knudson.</p>
 </article>"""
 page("about.html", "About — S. Harrison Knudson (Steele Harrison Knudson)", about, current="about.html",
      description="S. Harrison Knudson, J.D. (Steele Harrison Knudson) — American lawyer and scholar, Arlington, Virginia.")
