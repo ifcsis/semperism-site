@@ -1,0 +1,11 @@
+{
+  "name": "Semperism",
+  "short_name": "Semperism",
+  "icons": [
+    {"src": "/favicon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/img/semperism-logo.png", "sizes": "512x512", "type": "image/png"}
+  ],
+  "theme_color": "#1f3358",
+  "background_color": "#f7f4ec",
+  "display": "browser"
+}

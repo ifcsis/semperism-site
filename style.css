@@ -19,7 +19,7 @@ a:hover{color:var(--gold)}
 header.site{display:flex;align-items:center;gap:24px;max-width:1040px;margin:0 auto;padding:22px 24px;border-bottom:1px solid var(--line)}
 .brand{font:600 21px/1 var(--serif);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;margin-right:auto}
 .brand{display:inline-flex;align-items:center;gap:10px}
-.brand .mark{width:30px;height:30px;color:var(--accent);flex:none}
+.brand .mark{width:40px;height:40px;color:var(--accent);flex:none;object-fit:contain}
 .brand .mark .m-gold{fill:var(--gold)}
 .hero-emblem{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:48px;align-items:center}
 .hero-emblem .emblem{width:100%;height:auto}

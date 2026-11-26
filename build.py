@@ -37,7 +37,20 @@ PERSON = {
     "sameAs": ["https://orcid.org/0009-0004-3600-4115", "https://ifcsis.org/director.html", "https://superelements.com/",
                "https://sonofgod.love/", "https://sonofgod.love/library", SUBSTACK],
 }
-OG_IMAGE = "https://semperism.org/img/semper-virtus.webp"
+OG_IMAGE = "https://semperism.org/img/semperism-og.jpg"
+LOGO = "https://semperism.org/img/semperism-logo.png"
+# Home-page structured data: WebSite tells Google the site name ("Semperism");
+# Organization.logo tells Google which image is the site's logo.
+WEBSITE = {"@type": "WebSite", "@id": "https://semperism.org/#website", "name": "Semperism",
+           "alternateName": ["Semperism.org", "Semper Virtus"], "url": "https://semperism.org/",
+           "publisher": {"@id": "https://semperism.org/#org"}}
+ORG = {"@type": "Organization", "@id": "https://semperism.org/#org", "name": "Semperism",
+       "url": "https://semperism.org/", "slogan": "Semper Virtus",
+       "logo": {"@type": "ImageObject", "url": LOGO, "width": 512, "height": 512},
+       "image": "https://semperism.org/img/semper-virtus-medallion.webp",
+       "founder": {"@id": "https://semperism.org/about.html#person"},
+       "email": "shknudson@semperism.org",
+       "sameAs": ["https://semperism.substack.com"]}
 def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(dict({"@context": "https://schema.org"}, **obj), ensure_ascii=False) + '</script>\n'
 # Shorter essays published on the Semper Substack (newest first)
@@ -472,13 +485,25 @@ def page(fname, title, body, current="", description="", head_extra=""):
 <meta property="og:type" content="{'article' if 'citation_title' in head_extra else 'website'}">
 <meta property="og:site_name" content="Semperism">
 <meta property="og:image" content="{OG_IMAGE}">
-{ld(PERSON) if fname in ("index.html", "about.html") else ""}{head_extra}<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Semper Virtus medallion of Semperism">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="application-name" content="Semperism">
+<meta name="apple-mobile-web-app-title" content="Semperism">
+<meta name="theme-color" content="#1f3358">
+{(ld(WEBSITE) + ld(ORG)) if fname == "index.html" else ""}{ld(PERSON) if fname in ("index.html", "about.html") else ""}{head_extra}<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <a class="brand" href="/"><svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">  <g class="m-ink" fill="currentColor">    <!-- spear held at rest, point down, breaking the chain -->    <g transform="rotate(42 32 32)">      <rect x="30.6" y="0" width="2.8" height="46" rx="1.4"/>      <circle cx="32" cy="0.8" r="2.6"/>      <rect x="27.6" y="44.5" width="8.8" height="2.4" rx="1.2"/>      <path d="M32 47.5 C28 51 28 55 32 63 C36 55 36 51 32 47.5 Z"/>    </g>    <!-- fallen crown, cracked -->    <g transform="translate(-5 -3) rotate(-12 48 54)">      <path d="M36 61 L36 51 L40 55 L43.6 48 L45.2 54 L45.2 61 Z"/>      <path d="M47.4 61 L47.4 53 L49.5 48.5 L53 55 L57 51 L57 61 Z"/>    </g>  </g>  <!-- broken chain link -->  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">    <path d="M4 44 C2 50 6 55 10 53"/>    <path d="M7 38 C11 34 16 37 15 42"/>  </g>  <g class="m-gold" fill="#9a7a2c" transform="translate(-5 -3) rotate(-12 48 54)">    <circle cx="43.6" cy="46.3" r="1.5"/><circle cx="36" cy="49.4" r="1.3"/>    <circle cx="49.5" cy="46.8" r="1.5"/><circle cx="57" cy="49.4" r="1.3"/>  </g></svg>Semperism</a>
+  <a class="brand" href="/"><img class="mark" src="/img/semperism-mark.webp" width="48" height="48" alt="">Semperism</a>
   <nav><ul>{nav}</ul></nav>
   <a class="btn btn-sm" href="mailto:{EMAIL}">Write</a>
 </header>
@@ -528,12 +553,15 @@ if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
 shutil.copy(os.path.join(ROOT, "style.css"), OUT)
-shutil.copy(os.path.join(ROOT, "favicon.svg"), OUT)
+for f in ("favicon.svg", "favicon.ico", "favicon-48.png", "favicon-96.png", "favicon-192.png",
+          "apple-touch-icon.png", "site.webmanifest"):
+    if os.path.exists(os.path.join(ROOT, f)):
+        shutil.copy(os.path.join(ROOT, f), OUT)
 shutil.copytree(os.path.join(ROOT, "img"), os.path.join(OUT, "img"))
 
 # Home
 home = f"""<section class="hero wrap hero-emblem">
-  <img class="emblem" src="/img/semper-virtus.webp" width="844" height="900" alt="Semper Virtus: Virtue holds the spear at rest, its point breaking a chain; a child holds the book Lex Aeterna; a cracked crown lies at her feet.">
+  <img class="emblem" src="/img/semper-virtus-medallion.webp" width="910" height="900" alt="Semper Virtus: Virtue holds the spear at rest, its point breaking a chain; a child holds the book Lex Aeterna; a cracked crown lies at her feet.">
   <div>
   <span class="eyebrow">From <em>sic semper tyrannis</em></span>
   <h1>{e(HERO)}</h1>
@@ -563,7 +591,7 @@ fw = f"""<article class="wrap wrap-narrow prose">
   <p>History calls them Anti-Federalists, a label their opponents gave them that says only what they were against. Mason, who refused to sign at Philadelphia; Henry, who fought ratification in Virginia; the essayist Brutus; Monroe, who voted no and later became President. What they shared was a conviction the old vocabulary never named: some things are always a threat. Consolidation, consecration, the marking of dissent as disloyalty — these are not accidents of bad rulers. They are the <em>always</em> of government, and they call for permanent, written prohibition.</p>
   <p>I call that disposition <em>Semperist</em>. It is an interpretive name, not a claimed historical identity. It comes from the motto George Wythe’s committee set on Virginia’s seal in 1776, <em>sic semper tyrannis</em>. John Wilkes Booth later turned the phrase into an assassin’s line. It deserves to be heard again as the founders heard it: not vengeance, but a permanent posture toward power. The seal shows it — Virtus standing over the fallen tyrant, spear grounded, sword sheathed.</p>
   <figure class="emblem-fig">
-    <img src="/img/semper-virtus.webp" width="844" height="900" alt="The Semper Virtus emblem.">
+    <img src="/img/semper-virtus-medallion.webp" width="910" height="900" alt="The Semper Virtus emblem.">
     <figcaption><em>Semper Virtus.</em> Virtue holds the spear at rest, its point breaking the chain. The crown lies cracked at her feet, and the child holds <em>Lex Aeterna</em> — the law that outlasts every ruler, kept for posterity.</figcaption>
   </figure>
   <h2>Federalists and Semperists</h2>
