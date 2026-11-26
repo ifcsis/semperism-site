@@ -30,6 +30,7 @@ PERSON = {
     "name": "S. Harrison Knudson", "honorificSuffix": "J.D.",
     "alternateName": ["Steele Harrison Knudson", "S Harrison Knudson", "Steele H. Knudson", "Steele Knudson", "Harrison Knudson"],
     "givenName": "Steele", "additionalName": "Harrison", "familyName": "Knudson",
+    "image": "https://semperism.org/img/knudson-with-ronald-reagan.jpg",
     "url": "https://semperism.org/about.html",
     "jobTitle": "Attorney and independent scholar",
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
@@ -681,6 +682,10 @@ about = f"""<article class="wrap wrap-narrow prose">
   <span class="eyebrow">The author</span>
   <h1>{e(AUTHOR)}</h1>
   <p class="lede">American lawyer and scholar, Arlington, Virginia.</p>
+  <figure style="margin:8px 0 28px">
+    <img src="img/knudson-with-ronald-reagan.jpg" alt="S. Harrison Knudson (Steele Knudson) with President Ronald Reagan" width="448" height="364" style="width:100%;max-width:448px;height:auto;display:block">
+    <figcaption style="font-size:13px;opacity:.7;margin-top:8px">S. Harrison Knudson (Steele Knudson) with President Ronald Reagan.</figcaption>
+  </figure>
   <p>Steele Knudson has some two decades of practice across federal regulatory compliance, export controls and anti-corruption, antitrust, land use and internet governance. He holds a J.D. from George Mason University’s Antonin Scalia Law School and a B.S. in Urban Planning from the University of Utah.</p>
   <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. This site collects the constitutional side of that work: Semperism.</p>
   <p>Correspondence: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
@@ -703,8 +708,10 @@ with open(os.path.join(OUT, "robots.txt"), "w") as f:
     f.write(f"User-agent: *\nAllow: /\nSitemap: {DOMAIN}/sitemap.xml\n")
 urls = ["/", "/semperism.html", "/library.html", "/about.html"] + [f"/{x['slug']}.html" for x in ENTRIES]
 with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
-    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            + "".join(f"  <url><loc>{DOMAIN}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
+            + "".join(f"  <url><loc>{DOMAIN}{u}</loc>"
+                      + (f"<image:image><image:loc>{DOMAIN}/img/knudson-with-ronald-reagan.jpg</image:loc></image:image>" if u.endswith("about.html") else "")
+                      + "</url>\n" for u in urls) + "</urlset>\n")
 shutil.copy(os.path.join(ROOT, "README.md"), OUT)
 os.makedirs(os.path.join(OUT, "docs"), exist_ok=True)
 print("built", len(ENTRIES), "briefs ->", OUT)
