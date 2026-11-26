@@ -473,7 +473,7 @@ def req_link(title, docid):
 
 NAV = [("semperism.html", "Semperism"), ("library.html", "Library"), ("about.html", "About")]
 
-def page(fname, title, body, current="", description="", head_extra=""):
+def page(fname, title, body, current="", description="", head_extra="", og=None):
     nav = "".join('<li><a href="/%s"%s>%s</a></li>' % (h, ' aria-current="page"' if h == current else "", l)
                   for h, l in NAV)
     canon = DOMAIN + ("/" if fname == "index.html" else "/" + fname)
@@ -491,10 +491,10 @@ def page(fname, title, body, current="", description="", head_extra=""):
 <meta property="og:url" content="{canon}">
 <meta property="og:type" content="{'article' if 'citation_title' in head_extra else 'website'}">
 <meta property="og:site_name" content="Semperism">
-<meta property="og:image" content="{OG_IMAGE}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Semper Virtus medallion of Semperism">
+<meta property="og:image" content="{(og or {}).get('url', OG_IMAGE)}">
+<meta property="og:image:width" content="{(og or {}).get('w', 1200)}">
+<meta property="og:image:height" content="{(og or {}).get('h', 630)}">
+<meta property="og:image:alt" content="{e((og or {}).get('alt', 'The Semper Virtus medallion of Semperism'))}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="application-name" content="Semperism">
 <meta name="apple-mobile-web-app-title" content="Semperism">
@@ -698,6 +698,8 @@ about = f"""<article class="wrap wrap-narrow prose">
   <p class="aka" style="font-size:13px;opacity:.6;margin-top:40px;padding-top:12px;border-top:1px solid currentColor">S. Harrison Knudson is also known as Steele Knudson and Steele Harrison Knudson.</p>
 </article>"""
 page("about.html", "About — S. Harrison Knudson (Steele Harrison Knudson)", about, current="about.html",
+     og={"url": "https://semperism.org/img/knudson-with-ronald-reagan.jpg", "w": 448, "h": 364,
+         "alt": "S. Harrison Knudson (Steele Harrison Knudson, Steele Knudson) with President Ronald Reagan"},
      description="S. Harrison Knudson, J.D. (Steele Harrison Knudson) — American lawyer and scholar, Arlington, Virginia.")
 
 # 404
