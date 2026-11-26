@@ -561,7 +561,7 @@ shutil.copytree(os.path.join(ROOT, "img"), os.path.join(OUT, "img"))
 
 # Home
 home = f"""<section class="hero wrap hero-emblem">
-  <img class="emblem" src="/img/semper-virtus-medallion.webp" width="910" height="900" alt="Semper Virtus: Virtue holds the spear at rest, its point breaking a chain; a child holds the book Lex Aeterna; a cracked crown lies at her feet.">
+  <img class="emblem" src="/img/semper-virtus-medallion.webp" width="935" height="900" alt="Semper Virtus: Virtue holds the spear at rest, its point breaking a chain; a child holds the book Lex Aeterna; a cracked crown lies at her feet.">
   <div>
   <span class="eyebrow">From <em>sic semper tyrannis</em></span>
   <h1>{e(HERO)}</h1>
@@ -591,7 +591,7 @@ fw = f"""<article class="wrap wrap-narrow prose">
   <p>History calls them Anti-Federalists, a label their opponents gave them that says only what they were against. Mason, who refused to sign at Philadelphia; Henry, who fought ratification in Virginia; the essayist Brutus; Monroe, who voted no and later became President. What they shared was a conviction the old vocabulary never named: some things are always a threat. Consolidation, consecration, the marking of dissent as disloyalty — these are not accidents of bad rulers. They are the <em>always</em> of government, and they call for permanent, written prohibition.</p>
   <p>I call that disposition <em>Semperist</em>. It is an interpretive name, not a claimed historical identity. It comes from the motto George Wythe’s committee set on Virginia’s seal in 1776, <em>sic semper tyrannis</em>. John Wilkes Booth later turned the phrase into an assassin’s line. It deserves to be heard again as the founders heard it: not vengeance, but a permanent posture toward power. The seal shows it — Virtus standing over the fallen tyrant, spear grounded, sword sheathed.</p>
   <figure class="emblem-fig">
-    <img src="/img/semper-virtus-medallion.webp" width="910" height="900" alt="The Semper Virtus emblem.">
+    <img src="/img/semper-virtus-medallion.webp" width="935" height="900" alt="The Semper Virtus emblem.">
     <figcaption><em>Semper Virtus.</em> Virtue holds the spear at rest, its point breaking the chain. The crown lies cracked at her feet, and the child holds <em>Lex Aeterna</em> — the law that outlasts every ruler, kept for posterity.</figcaption>
   </figure>
   <h2>Federalists and Semperists</h2>
