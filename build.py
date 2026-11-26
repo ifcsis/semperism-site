@@ -31,7 +31,12 @@ PERSON = {
     "name": "S. Harrison Knudson", "honorificSuffix": "J.D.",
     "alternateName": ["Steele Harrison Knudson", "S Harrison Knudson", "Steele H. Knudson", "Steele Knudson", "Harrison Knudson"],
     "givenName": "Steele", "additionalName": "Harrison", "familyName": "Knudson",
-    "image": "https://semperism.org/img/knudson-with-ronald-reagan.jpg",
+    "image": {"@type": "ImageObject", "@id": "https://semperism.org/img/knudson-with-ronald-reagan.jpg#image",
+              "url": "https://semperism.org/img/knudson-with-ronald-reagan.jpg",
+              "contentUrl": "https://semperism.org/img/knudson-with-ronald-reagan.jpg",
+              "name": "S. Harrison Knudson with President Ronald Reagan",
+              "caption": "S. Harrison Knudson (Steele Harrison Knudson, Steele Knudson) with President Ronald Reagan",
+              "about": {"@id": "https://semperism.org/about.html#person"}},
     "url": "https://semperism.org/about.html",
     "jobTitle": "Attorney and independent scholar",
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
@@ -684,8 +689,8 @@ about = f"""<article class="wrap wrap-narrow prose">
   <h1>{e(AUTHOR)}</h1>
   <p class="lede">American lawyer and scholar, Arlington, Virginia.</p>
   <figure style="margin:8px 0 28px">
-    <img src="img/knudson-with-ronald-reagan.jpg" alt="S. Harrison Knudson (Steele Knudson) with President Ronald Reagan" width="448" height="364" style="width:100%;max-width:448px;height:auto;display:block">
-    <figcaption style="font-size:13px;opacity:.7;margin-top:8px">S. Harrison Knudson (Steele Knudson) with President Ronald Reagan.</figcaption>
+    <img src="img/knudson-with-ronald-reagan.jpg" alt="S. Harrison Knudson (Steele Harrison Knudson, Steele Knudson) with President Ronald Reagan" width="448" height="364" style="width:100%;max-width:448px;height:auto;display:block">
+    <figcaption style="font-size:13px;opacity:.7;margin-top:8px">S. Harrison Knudson (Steele Harrison Knudson, Steele Knudson) with President Ronald Reagan.</figcaption>
   </figure>
   <p>Steele Knudson has some two decades of practice across federal regulatory compliance, export controls and anti-corruption, antitrust, land use and internet governance. He holds a J.D. from George Mason University’s Antonin Scalia Law School and a B.S. in Urban Planning from the University of Utah.</p>
   <p>His work runs on several tracks that share one question — how institutions come to exceed the terms on which they were founded. This site collects the constitutional side of that work: Semperism.</p>
