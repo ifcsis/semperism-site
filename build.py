@@ -24,6 +24,7 @@ ELSEWHERE = [
     ("IFC-SiS", "https://ifcsis.org/"),
     ("Super Elements", "https://superelements.com/"),
     ("Son of God · theology library", "https://sonofgod.love/library"),
+    ("Peachfire · a novel", "https://peachfire.ink/"),
 ]
 PERSON = {
     "@type": "Person", "@id": "https://semperism.org/about.html#person",
@@ -36,7 +37,7 @@ PERSON = {
     "alumniOf": [{"@type": "CollegeOrUniversity", "name": "George Mason University Antonin Scalia Law School"},
                  {"@type": "CollegeOrUniversity", "name": "University of Utah"}],
     "sameAs": ["https://orcid.org/0009-0004-3600-4115", "https://ifcsis.org/director.html", "https://superelements.com/",
-               "https://sonofgod.love/", "https://sonofgod.love/library", SUBSTACK],
+               "https://sonofgod.love/", "https://sonofgod.love/library", SUBSTACK, "https://peachfire.ink/"],
 }
 OG_IMAGE = "https://semperism.org/img/semperism-og.jpg"
 LOGO = "https://semperism.org/img/semperism-logo.png"
